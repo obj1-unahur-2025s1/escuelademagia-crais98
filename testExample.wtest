@@ -1,9 +1,19 @@
-import example.pepita
+import example.*
+import materia.*
+import hechizos.*
 
 describe "group of tests for pepita" {
+  const harry = new Mago(esSangrePura=false, salud=100, casa= grifindor, habilidad= 5)
+  const lechuza = new Criatura(salud=100)
+  const grifindor = new Grifindor()
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+  const sectum = new SectumSempra(dificultad=1)
+
+  test "harry lanza hechizo x a lechuza" {
+    harry.aprenderHechizo(sectum)
+    harry.lanzarHechizoA(lechuza, sectum)
+    assert.equals(89, lechuza.salud())
+    assert.equals(5, harry.habilidad())
   }
 
 }
